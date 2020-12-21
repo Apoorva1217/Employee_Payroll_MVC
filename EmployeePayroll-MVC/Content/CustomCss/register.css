@@ -1,0 +1,181 @@
+﻿html body {
+    margin: 0;
+}
+
+.header {
+    padding: 15px 0;
+    font: normal normal normal 28px/37px Roboto;
+    font-size: 28px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+    opacity: 1;
+    background-color: #919879;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form {
+    padding: 0px 30%;
+}
+
+.genderBox {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 40%;
+    padding-top: 10px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-right: 0px;
+    margin-left: 0px;
+    min-width: 100%;
+    justify-content: start;
+    margin-top: 15px;
+}
+
+.btnColumn {
+    min-width: 140px;
+    margin-top: 10px;
+}
+
+.text {
+    font-size: 16px;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
+
+.profile-radio-button {
+    display: flex;
+    flex-direction: row;
+}
+
+    .profile-radio-button > label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+.uploadButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.buttonParent {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    font-size: 20px;
+    font-family: Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    opacity: 1;
+    background: transparent;
+    border: none;
+    font-weight: 400;
+    min-width: 100px;
+    padding: 7px 7px;
+    border: 1px solid #707070;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-left: 30px
+}
+
+.submitButton {
+    border: none;
+    background-color: #f5f5f5;
+    margin-right: 30px;
+}
+
+.cancelButton {
+    margin-left: 140px;
+    text-decoration: none;
+    text-align: center;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    min-width: 150px;
+}
+
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 16px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    background-color: transparent;
+}
+
+.profile {
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 12px;
+}
+
+@media only screen and (max-width: 800px) {
+    .cancelButton {
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .uploadButton {
+        justify-content: flex-start;
+    }
+
+    .profile-radio-button {
+        flex-flow: wrap;
+    }
+
+    .submit-reset {
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .submitButton {
+        margin: 0;
+    }
+
+    .buttonParent {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+}
