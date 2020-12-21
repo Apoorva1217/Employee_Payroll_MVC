@@ -247,6 +247,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Employee\index.cshtml" />
     <Content Include="Views\Employee\EmployeeList.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

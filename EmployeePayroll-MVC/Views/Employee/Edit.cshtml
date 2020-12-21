@@ -1,7 +1,7 @@
 ﻿@model EmployeePayroll_MVC.Models.Common.RegisterEmpRequestModel
 
 @{
-    ViewBag.Title = "RegisterEmployee";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,22 +10,24 @@
         color: red
     }
 </style>
-@using (Html.BeginForm("RegisterEmployee", "Employee", FormMethod.Post))
+@using (Html.BeginForm("EditEmployee", "Employee", FormMethod.Post))
 {
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
 
         <link href="~/Content/CustomCss/register.css" rel="stylesheet" />
-        <title>Employee payroll form</title>
+        <title>Employee Payroll Form</title>
     </head>
 
     <body>
         <div>
-            <header class="header">Employee Payroll Form</header>
+            <header class="header">Edit Details</header>
         </div>
         <div class="form">
+            @Html.HiddenFor(m => m.EmpId)
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
                 <label>Name</label>
@@ -74,7 +76,7 @@
                 <label>Start Date</label>
 
                 @Html.ValidationMessageFor(x => x.StartDate, "", new { @class = "error" })
-                @Html.TextBoxFor(model => model.StartDate, new { type = "date" })
+                @Html.EditorFor(model => model.StartDate)
 
             </div>
             <div class="row">
@@ -82,9 +84,8 @@
                 @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
             </div>
             <div class="btnColumn">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 <button type="reset" value="Reset" class="btn bg-danger">Reset</button>
-                <a href="@Url.Action("EmployeeList", "Employee")" class="btn btn-success">Employee List</a>
             </div>
         </div>
     </body>

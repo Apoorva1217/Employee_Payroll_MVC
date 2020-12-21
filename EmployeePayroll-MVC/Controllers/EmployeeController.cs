@@ -111,5 +111,70 @@ namespace EmployeePayroll_MVC.Controllers
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Ability to Edit Employee in Employee Payroll DB
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public ActionResult Edit(EmployeeDetailModel data)
+        {
+            RegisterEmpRequestModel emp = new RegisterEmpRequestModel
+            {
+                EmpId = data.EmpId,
+                Name = data.Name,
+                Gender = data.Gender,
+                Department = data.Department,
+                SalaryId = data.SalaryId.ToString(),
+                StartDate = data.StartDate,
+                Description = data.Description
+            };
+
+            return View(emp);
+        }
+        public ActionResult EditEmployee(RegisterEmpRequestModel employee)
+        {
+            bool result = EditEmployeeService(employee);
+            if (result == true)
+            {
+                List<EmployeeDetailModel> list = GetAllEmployee();
+                return View("EmployeeList", list);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+        public bool EditEmployeeService(RegisterEmpRequestModel employee)
+        {
+            try
+            {
+                int departmentId = db.Departments.Where(x =>
+                                                     x.DeptName == employee.Department)
+                                                    .Select(x => x.DeptId).FirstOrDefault();
+
+                Employee emp = db.Employees.Find(employee.EmpId);
+                emp.Name = employee.Name;
+                emp.SalaryId = Convert.ToInt32(employee.SalaryId);
+                emp.StartDate = employee.StartDate;
+                emp.Description = employee.Description;
+                emp.Gender = employee.Gender;
+                emp.DepartmentId = departmentId;
+
+                int result = db.SaveChanges();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
