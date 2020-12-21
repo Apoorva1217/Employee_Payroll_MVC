@@ -176,5 +176,49 @@ namespace EmployeePayroll_MVC.Controllers
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Ability to Delete Employee from Employee Payroll DB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Delete(int id)
+        {
+            bool result = DeleteEmployee(id);
+            if (result == true)
+            {
+                List<EmployeeDetailModel> list = GetAllEmployee();
+                return View("EmployeeList", list);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+        public bool DeleteEmployee(int id)
+        {
+            try
+            {
+                Employee employee = db.Employees.Find(id);
+                if (employee == null)
+                {
+                    return false;
+                }
+                db.Employees.Remove(employee);
+                int result = db.SaveChanges();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
