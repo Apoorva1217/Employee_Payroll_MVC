@@ -20,7 +20,7 @@ namespace EmployeePayroll_MVC.Controllers
         }
 
         /// <summary>
-        /// Ability to add a new Employee to the Employee Payroll DB
+        /// Ability to add multiple Employees to the Employee Payroll DB
         /// </summary>
         /// <param name="employee"></param>
         /// <returns></returns>
