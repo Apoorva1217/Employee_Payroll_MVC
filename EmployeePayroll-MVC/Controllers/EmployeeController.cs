@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace EmployeePayroll_MVC.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         public ApplicationDbContext db = new ApplicationDbContext();
@@ -19,7 +20,7 @@ namespace EmployeePayroll_MVC.Controllers
         }
 
         /// <summary>
-        /// Retrieve all Employees in Employee Payroll DB
+        /// Retrieve single Employee in Employee Payroll DB
         /// </summary>
         /// <returns></returns>
         public ActionResult EmployeeList()
