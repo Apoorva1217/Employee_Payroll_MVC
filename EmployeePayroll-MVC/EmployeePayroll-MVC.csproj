@@ -176,6 +176,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Common\EmployeeDetailModel.cs" />
+    <Compile Include="Models\Common\RegisterEmpRequestModel.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -190,6 +191,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CustomCss\employeeList.css" />
     <Content Include="Content\CustomCss\header.css" />
     <Content Include="Content\CustomCss\register.css" />
     <Content Include="favicon.ico" />

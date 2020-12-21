@@ -1,0 +1,77 @@
+﻿@model IEnumerable<EmployeePayroll_MVC.Models.Common.EmployeeDetailModel>
+
+@{
+    ViewBag.Title = "EmployeeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,500&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link href="~/Content/CustomCss/employeeList.css" rel="stylesheet" />
+    <title>Employee payroll form</title>
+</head>
+
+<div class="flex-column content-col">
+    <div class="emp-detail-col">
+        <div class="details-text">Employee Details</div>
+
+        <p style="margin-top: 2%;">
+            <a href="@Url.Action("Index", "Employee")" class="btn btn-success">Add User</a>
+        </p>
+    </div>
+    <div class="table-main">
+        <table class="tableEmp">
+            <tr>
+                <th>
+                    @Html.DisplayName("NAME")
+                </th>
+                <th>
+                    @Html.DisplayName("GENDER")
+                </th>
+                <th>
+                    @Html.DisplayName("DEPARTMENT")
+                </th>
+                <th>
+                    @Html.DisplayName("SALARY")
+                </th>
+                <th>
+                    @Html.DisplayName("START DATE")
+                </th>
+                <th>
+                    @Html.DisplayName("ACTIONS")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit","Employee",item)" class="btn btn-success">Edit</a>
+                        <a href="@Url.Action("Delete","Employee",new { id = item.EmpId })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
