@@ -24,6 +24,9 @@ namespace EmployeePayroll_MVC.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Salary> Salaries { get; set; }
 
         public static ApplicationDbContext Create()
         {
